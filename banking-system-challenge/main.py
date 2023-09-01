@@ -1,3 +1,79 @@
+from abc import ABC, abstractmethod
+
+class Cliente:
+    def __init__(self, endereco):
+        self._endereco = endereco
+        self._contas = []
+
+    def realizar_transacao(self, conta, transacao):
+        self.conta = conta
+        self.transacao = transacao
+
+    def adicionar_conta(self, conta):
+        self.conta = conta
+
+class PessoaFisica(Cliente):
+    def __init__(self, cpf, nome, data_nascimento):
+        self.cpf = cpf
+        self.nome = nome
+        self.data_nascimento = data_nascimento
+
+class Conta:
+    def __init__(self, saldo, numero, agencia, cliente, historico):
+        self.saldo = 0.00
+        self.numero = 1
+        self.agencia = "0001"
+        self.cliente = cliente
+        self.historico = Historico()
+
+    @property
+    def saldo(self, valor):
+        return self._valor
+    
+    @property
+    def nova_conta(self, cliente, numero):
+        return 
+    
+    @property
+    def sacar(self, valor):
+        return 
+    
+    @property
+    def depositar(self, valor):
+        return 
+    
+class Historico:
+    def __init__(self):
+        self.transacoes = []
+
+    def adicionar_transcao(self, transacao):
+        self.transacao = transacao
+
+class Transacao(ABC):
+    @abstractmethod
+    @property
+    def valor(self):
+        pass
+
+    def registrar(self, conta):
+        pass
+
+class Deposito(Transacao):
+    @property
+    def valor(self):
+        pass
+
+    def registrar(self, conta):
+        pass
+
+class Sacar(Transacao):
+    @property
+    def valor(self):
+        pass
+
+    def registrar(self, conta):
+        pass
+
 def menu():
     print(
 """
